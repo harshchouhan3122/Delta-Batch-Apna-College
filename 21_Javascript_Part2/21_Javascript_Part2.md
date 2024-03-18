@@ -44,4 +44,12 @@
         - ""
         - NaN
 
-### 
+### Switch Statement
+    - case based scenerio
+    - case
+    - break (imp) -> otherwise all further cases will run one by one from the the case which is true
+    - default (behaves like else statement)
+
+### Alert and Prompt
+    - Alert -> OK button for the pop up on the page
+    - Prompt -> Dialog box that asks for some input  -> null value input by default
