@@ -64,7 +64,7 @@
     - vice versa is not possible
 
 #### Hoisting
-    - use od variable before its declaration (part6.js)
+    - use of variable before its declaration (part6.js)
 
 ### Function Expression
     - Another way to write functions
