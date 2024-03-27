@@ -1,16 +1,20 @@
-let array1 = [1,2,3]
-let array2 = array1
+const student = {
+    name : "harsh",
+    class : 9,
+    subjects : ['hindi', 'english', 'physics', 'chemistry'],
+    username : 'harsh123',
+    password : 'abc123'
+}
 
-console.log(array1, array2)
+// If we want only username and pass of the student then destructuring is used
+let {username, password} = student;     // variable name should be same in this case
+console.log(username, password)
 
-array2.push(5)
-console.log(array1, array2)
+// Using Destructuring
+// let {username : user, password: pass} = student     // If we wanna store data in another variable
+// console.log(user, pass)
 
+// console.log(user, pass, city)
 
-// That'swhy we have to create a copy of values into another array
-// using spread
-array2 = [...array1]
-console.log(array1, array2)
-
-array2.push(5)
-console.log(array1, array2)
+let {username : user, password: pass, city="Mumbai"} = student     // If we wanna store data in another variable
+console.log(user, pass, city)

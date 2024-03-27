@@ -69,7 +69,12 @@
 ## Rest
     - Opposite to Spread but Syntax same
     - Allows a function to take an indefinate number of arguments and bundle them in array
+    - arguments do this task for us but we can't apply array methods to the argument's collection
 
+## Destructuring
+    - Storing values of the array into multiple variables
+    - [first, second] = nums; -> num is the array
+    
 
     
 

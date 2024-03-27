@@ -107,3 +107,71 @@ arr = ['h','a','r','s','h']
 let obj = {...arr}
 
 console.log(obj)
+
+
+
+// REST -> opposite to Spread
+// when you don't know the number of arguments -> bundle it using REST concept
+
+// arguments -> default collection -> return all the arguments 
+function sum(){
+    let ans = 0
+    for(num of arguments)
+        ans += num
+    return ans
+}
+
+// argument collection is immutable in nature
+// function sum(){
+//     let ans = 0
+//     arguments.push(2)    // Not Allowed
+//     for(num of args)
+//         ans += num
+//     return ans
+// }
+
+function sum(...args){
+    let ans = 0
+    args.push(2)        // Manipulate the given arguments
+    for(num of args)
+        ans += num
+    return ans
+}
+
+let res = sum(1,2,4,5,7,8)
+console.log(res)
+
+
+
+
+// Destructuring of Array
+let names = ["Harsh", "Rohan", "Mohan", 'Shivani']
+
+let [first, second, ...others] = names
+
+console.log(first, second, others)
+
+
+
+// Destructuring of Objects
+
+const student = {
+    name : "harsh",
+    class : 9,
+    subjects : ['hindi', 'english', 'physics', 'chemistry'],
+    username : 'harsh123',
+    password : 'abc123'
+}
+
+// If we want only username and pass of the student then destructuring is used
+let {username, password} = student;     // variable name should be same in this case
+console.log(username, password)
+
+// Using Destructuring
+// let {username : user, password: pass} = student     // If we wanna store data in another variable
+// console.log(user, pass)
+
+// console.log(user, pass, city)       // If property doesn't exists then you can pass default value
+
+let {username : user, password: pass, city="Mumbai"} = student     // If we wanna store data in another variable
+console.log(user, pass, city)
