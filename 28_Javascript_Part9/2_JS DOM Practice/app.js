@@ -36,3 +36,10 @@ console.log(heading.classList);
 
 heading.classList.add('abc');
 console.log(heading.classList);
+
+
+
+
+
+
+// Practice Question
