@@ -1,0 +1,25 @@
+.div1{
+    height: 150px;
+    width: 300px;
+    background-color: pink;
+}
+
+ul{
+    background-color: blue;
+}
+
+li{
+    background-color: greenyellow;
+}
+
+.flash{
+    height: 200px;
+    width: 400px;
+    border: 2px solid black;
+    border-radius: 4px;
+    margin: 10px 0px;
+}
+
+.flash-color{
+    background-color: red;
+}
