@@ -1,14 +1,18 @@
-setTimeout(()=>{
-    console.log("Timmer Stopped.")
-},1500);
+// Using async and await with fetch()
+url = "https://catfact.ninja/fact";
+async function getFact(){
+    try{
+        let res = await fetch(url);
+        let data = await res.json();
+        console.log(data.fact);
 
-// while(1){
-//     console.log("H");
-// }
+        let res2 = await fetch(url);
+        let data2 = await res2.json();
+        console.log(data2.fact);
 
-let id1 = setInterval(()=>{
-    console.log("Hello");
-}, 200);
-setTimeout(()=>{
-    clearInterval(id1);
-},3000);
+    } catch(err){
+        console.log("Error -> " + err);
+    }
+}
+
+getFact();

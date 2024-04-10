@@ -86,5 +86,52 @@
     -> using query string (?q=mango)
         -> key:value pair for additional info
         -> www.google.com/search?q=mango
-        
+
     -> using API routes (/:id)
+
+    -> unused key value pairs are ignored means we will not get any error code from the server
+
+## HTTPs Headers
+    -> header, value
+    -> inspect -> network
+
+    -> in every request some additional about our machine has been sent using headers
+
+    -> headers are used to get different type of data (text/html, location/json)
+
+    -> meta data can also be send using headers -> meta data is data about data
+
+## API Request using JS
+    -> fetch(url)   -> return promise
+
+    -> Code -> part12.js 
+        -> Check it -> Inspect -> Network -> fact -> Response
+
+    -> res.json()
+
+## Using Fetch with async & await
+    -> url = "https://catfact.ninja/fact";
+        async function getFact(){
+            try{
+                let res = await fetch(url);
+                let data = await res.json();
+                console.log(data.fact);
+
+                let res2 = await fetch(url);
+                let data2 = await res2.json();
+                console.log(data2.fact);
+
+            } catch(err){
+                console.log("Error -> " + err);
+            }
+        }
+
+    -> we have to parse data for readable format
+
+## Axios 
+    -> Library to make HTTP request
+    -> cdn link copy on html using script tag
+    -> Code -> part12.js
+    -> Don't need to parse data because in this we get data in the readable format directly
+
+#### Activity -> get random facts on webpage
