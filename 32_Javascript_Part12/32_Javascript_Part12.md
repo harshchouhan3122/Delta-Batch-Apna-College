@@ -32,9 +32,9 @@
     -> Return/ response some data in JSON (JavaScript Object Notation) format not in HTML, CSS, JS format
 
 ### Some Random APIs
-    -> https://catfact.ninja/fact
-    -> https://www.boreapi.com/api/activity
-    -> https://dog.ceo/api/breeds/image/random
+    -> Cat Facts - https://catfact.ninja/fact
+    -> Bore Activity - https://www.boreapi.com/api/activity
+    -> Dog Image - https://dog.ceo/api/breeds/image/random
 
     -> Twitter APIs 9without login twitter account, access some features (wating shorts, like, replies)
         -> free - key (password) X - access token
@@ -134,4 +134,16 @@
     -> Code -> part12.js
     -> Don't need to parse data because in this we get data in the readable format directly
 
-#### Activity -> get random facts on webpage
+## Activity 
+    -> get random facts on webpage (randomFacts.html)
+    -> get random images on webpage (randomImage.html)
+
+## Sending Headers with API Request
+    -> Code - headersAPI.js
+
+    const url = "https://icanhazdadjoke.com/";
+    const config = { headers: { Accept: "application/json"}};
+    let res = await axios.get(url, config);
+
+## Activity using query String
+    -> Code - queryString.js
