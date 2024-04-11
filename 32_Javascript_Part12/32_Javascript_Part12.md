@@ -144,6 +144,7 @@
     const url = "https://icanhazdadjoke.com/";
     const config = { headers: { Accept: "application/json"}};
     let res = await axios.get(url, config);
+    let data = await res.data;
 
 ## Activity using query String
     -> Code - queryString.js
