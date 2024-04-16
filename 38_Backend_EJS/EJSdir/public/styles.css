@@ -1,0 +1,23 @@
+h1{
+    text-align: center;
+}
+body{
+    text-align: center;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+img{
+    height: 200px;
+    width: 200px;
+}
+.posts{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.post{
+    display: flex;
+    flex-direction: column;
+}

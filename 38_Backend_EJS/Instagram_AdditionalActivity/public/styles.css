@@ -1,0 +1,35 @@
+h1{
+    text-align: center;
+}
+body{
+    text-align: center;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    background-color: azure;
+}
+img{
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+}
+.posts{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.post{
+    display: flex;
+    flex-direction: column;
+}
+button:hover{
+    scale: 1.5;
+    margin: 0 20px;
+}
+
+.post img:hover, p{
+    scale: 1.02;
+    font-weight: bold;
+    /* font-size: larger; */
+}

@@ -1,0 +1,23 @@
+<body>
+    
+    <h1>Welcome to Instagram</h1>
+    <hr>
+
+    <h2>This account belongs to @<%= data.name %> </h2>
+    <p>Followers: <%= data.followers %> &nbsp;&nbsp;&nbsp;&nbsp; Following: <%= data.following %> </p>
+    <button>Follow</button>
+    <button>Message</button>
+    <hr>
+
+    <div class="posts">
+        <!-- posts -->
+        <% for(let post of data.posts) { %>
+            <div class="post">
+                <img src=" <%= post.image %> " alt="Image Not Found">
+                <p>Likes: <%= post.likes %> &nbsp;&nbsp;&nbsp;&nbsp; Comments: <%= post.comments %> </p>
+            </div>
+            <% } %>
+    </div>
+
+</body>
+</html>

@@ -48,6 +48,7 @@
 
 ## Installing Nodemon
     -> To automatically restart the server with the code changes.
+    -> nodemon index.js
 
 ## Path Parameters
     -> app.get('/:username/:id', (req, res)=>{})
