@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: 0px 20px 20px 20px
+}
+
+h1{
+    margin: 20px;
+    color: rgb(221, 55, 55);
+    text-align: center;
+}
+
+.post{
+    border: 1px solid grey;
+    background-color: rgb(188, 188, 231);
+    margin: 10px 10px;
+    padding: 0px 10px 20px 20px;
+}
+
+.username{
+    font-style: italic;
+    text-decoration: underline;
+    margin: 10px 0px;
+}
+
+.content{
+    font-style: normal;
+}
+
+button a{
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+}
+
+.center-btn{
+    margin-left: 42%;
+    height: 30px;
+}
