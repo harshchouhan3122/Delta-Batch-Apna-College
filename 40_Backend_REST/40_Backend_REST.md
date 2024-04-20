@@ -131,6 +131,8 @@
         -> Universally Unique Identifier
     -> npm install uuid (string ids)
 
+    const {v4: uuidv4} = require('uuid');
+
 
 ## Update Route
     -> PATCH   ->/posts/:id   -> to update specific post    (Update Route)
@@ -142,7 +144,39 @@
 ## Edit Route
     -> edit.ejs
 
+
     -> NOTE: We can send only GET or POST request in html forms
         -> We will use npm package which override the method
 
         -> npm install method-override 
+
+    -> Changes in edit.ejs
+
+        <form method="post" action="/posts/<%=post.id%>?_method=PATCH">
+
+    -> Changes in index.js
+        const methodOverride = require("method-override");  //  for getting PATCH request from HTML form 
+
+        // Edit Post using HTML form - using Method-Override    API use
+        app.get("/posts/:id/edit", (req, res)=>{
+            let {id} = req.params;
+            let post = posts.find((p) => id === p.id);
+            res.render("edit.ejs", {id, post});
+        })
+
+        app.patch("/posts/:id", (req, res)=>{
+            let {id} = req.params;
+            let newContent = req.body.content;
+            let post = posts.find((p) => id === p.id);
+            post.content = newContent;
+            // res.render("index.ejs" ,{posts});
+            res.redirect("/posts");
+            // res.send(`Working Well, Check the Console $      {newContent}`);
+        })
+
+## Destroy Route (DELETE)
+    -> DELETE  ->/posts/:id   -> to delete specific Post    (Destroy Route)
+
+    -> create a delet button on the index.ejs
+    
+    -> if you create a button then you have to add eventListners using Javascript or you can create a button under FORM so that you can use method override for DELETE as PATCH in the previous part

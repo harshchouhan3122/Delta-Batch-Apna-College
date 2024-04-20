@@ -9,18 +9,25 @@
 <body>
 
     <h1>Quora Posts</h1>
-
-    <% for ( post of posts ) { %>
-        <div class="post">
-            <h3 class="username"> @<%= post.username %> </h3>
-            <p class="content"> <%= post.content %> </p>
-            <br>
-            <button><a href="http://localhost:3000/posts/<%=post.id%>">Show in detail</a></button>
-            <button><a href="http://localhost:3000/posts/<%=post.id%>/edit">Edit Post</a></button>
-        </div>
-    <% } %>
-
+    <hr>
+    
     <button class="center-btn"><a href="http://localhost:3000/posts/new">Add New Post</a></button>
-
+    
+    <div class="container">
+        <% for ( post of posts ) { %>
+            <div class="post">
+                <h3 class="username"> @<%= post.username %> </h3>
+                <p class="content"> <%= post.content %> </p>
+                <br>
+                <button><a href="http://localhost:3000/posts/<%=post.id%>">Show in detail</a></button>
+                <button><a href="http://localhost:3000/posts/<%=post.id%>/edit">Edit Post</a></button>
+                <form method="post" action="/posts/<%=post.id%>?_method=DELETE">
+                    <button class="delete-btn">Delete Post</button>
+                </form>
+            </div>
+        <% } %>
+    
+    
+    </div>
 </body>
 </html>
