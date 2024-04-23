@@ -1,4 +1,4 @@
-# Database
+# Database 
 
 ## Database
     -> It is a collection of data in a format that can be easily accessed.
@@ -20,6 +20,8 @@
     -> NoSQL 
         -> Non Relational Database (Data Stored in Document/ key:val/ graphs, etc)
         -> MongoDB, Cassandra, Neo4j, etc
+
+# SQL (PART 1)
 
 ## MySQL
     -> SQL (Structured Query Language)
@@ -152,4 +154,112 @@
     SELECT * FROM user;
     SELECT name, email FROM user;
     SELECT DISTINCT age FROM user;
+
+
+# SQL (PART 2)
+
+## WHERE clause
+    -> SELECT name, followers, following FROM user WHERE followers >= 200 AND age > 15;
+
+    -> Operators used with WHERE clause
+        -> Arithemetic (+, -, *, /, %)
+        -> Comparison (=, !=, >, >=, <=, <)
+        -> Logical (AND, OR, NOT, IN, BETWEEN, ALL, LIKE, ANY)
+        -> Bitwise (&, |)   -> for bit manupulation
+
+## LIMIT Clause
+    -> SELECT col1, col2 FROM table_name LIMIT number;
+
+## ORDER BY clause
+    -> SELECT col1, col2 FROM table_name ORDER BY col_name ASC;
+    -> ASC / DESC
+
+## Aggregate Functions
+    -> To perform a calculation on a set of values, and return a single value
+
+    -> COUNT()
+    -> MAX()
+    -> MIN()
+    -> SUM()
+    -> AVG()
+
+    -> SELECT MAX(follower) FROM user;
+
+## GROUP BY clause
+    -> It collects the data from multiple records and groups the result by one or more column
+
+    -> Generally it is used with the aggregate function
+
+    -> SELECT col1, col2 FROM table_name GROUP BY col_names;
+
+    -> We can only mention col_names after the SELECT command which are GROUPED. 
+
+
+## HAVING clause
+    -> Similar to WHERE clause, but it is used when we want to apply any condition after grouping.
+
+    -> SELECT col1, col2
+    FROM table_name
+    GROUP BY col_names
+    HAVING condition;
+
+    -> WHERE is for the table, HAVING is for the group
+
+    -> Grouping is necessary for HAVING
+
+
+## GENERAL ORDER (Important)
+    -> SELECT column(s)
+    -> FROM table_name
+    -> WHERE condition
+    -> GROUP BY column(s)
+    -> HAVING condition
+    -> ORDER BY column(s) ASC;
+
+
+## UPDATE Queries
+    -> UPDATE table_name
+    SET col1 = val1, col2 = val2
+    WHERE consition;
+
+    -> To update the existing row data
+
+    -> NOTE : SET SQL_SAFE_UPDATES = 0;   
+        -> to change the setting , so that you can update data in the table
+
+## DELETE Queries
+    -> To delete existing rows
+
+    -> DELET FROM table_name WHERE condition;
+
+    -> NOTE : WHERE is must to with DELETE
+
+## TABLE Queries
+    -> Used whenever we want change in the schema
+
+    -> Add Column
+        -> ALTER TABLE table_name
+        ADD COLUMN col_name datatypeconstraints;
+
+    -> Drop Column
+        -> ALTER TABLE table_name
+        DROP COLUMN col_name;
+
+    -> Rename Table
+        -> ALTER TABLE table_name
+        RENAME TO table_name;
+
+    -> Rename Column
+        -> ALTER TABLE table_name
+        CHANGE COLUMN oldCol newCol newDatatype newConstraints;
+
+    -> Modify Column (modify datatype/ constraints)
+        -> ALTER TABLE table_name
+        MODIFY col_name new_datatype new_constraints
+
+## TRUNCATE 
+    -> DROP -> Deletes complete table along with schema
+    -> Truncate -> Deletes only row data not the column or schema
+
+    -> TRUNCATE TABLE table_name;
 
