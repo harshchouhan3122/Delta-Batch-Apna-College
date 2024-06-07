@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Username</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: aliceblue;
+        }
+        #heading{
+            text-decoration: underline;
+        }
+        .username{
+            margin-bottom: 5px;
+        }
+        .password{
+            margin-bottom: 5px;
+        }
+        form{
+            width: 300px;
+            border: 1px solid black;
+            padding: 10px 15px;
+            border-radius: 4px;
+            background-color: rgb(216, 221, 226);
+            margin: 20px;
+        }
+        form button{
+            cursor: pointer;
+        }
+        .form-footer {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px; /* Add some space between the input fields and the button */
+        }
+
+        .update-button {
+            /* padding: 10px 20px; */
+            /* font-size: 16px; */
+            cursor: pointer;
+        }
+        #btn_delete{
+            background-color: rgb(243, 176, 176);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: medium;
+            border: 1px solid black;
+        }
+        #btn_delete:hover{
+            transform: scale(1.1);
+        }
+        #DeleteForm{
+            margin: 0;
+            padding: 0;
+            border: none;
+            width: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2 id="heading">Update Profile</h2>
+    <h3>EMAIL :  <%= user.email %>  </h3>
+
+        <!-- PATCH is used to update previous data -->
+    <form method="post" action="/user/username/<%=user.id%>?_method=PATCH">
+        <p style="text-align: center; margin: -5px 0px 10px 0px ; font-weight: bold;">Update Username</p>
+        <div class="username">
+            <label for="username">Username: </label>
+            <!-- <textarea name="username" id="" >  </textarea> -->
+            <input type="text" name="username" value="<%=user.username%>">  
+        </div>
+        <div class="password">
+            <label for="password">Password: </label>
+            <input type="password" placeholder="Enter Password" name="password">
+        </div>
+        <div class="form-footer">
+            <button class="update-button">Update</button>
+        </div>
+    </form>
+
+        <!-- Password Update -->
+    <form method="post" action="/user/password/<%=user.id%>?_method=PATCH">
+        <p style="text-align: center; margin: -5px 0px 10px 0px ; font-weight: bold;">Update Password</p>
+        <div class="username">
+            <label for="old_password">Old Password: </label>     
+            <input type="password" placeholder="Enter Old Password" name="old_password">
+        </div>
+        <div class="password">
+            <label for="new_password">New Password: </label>
+            <input type="password" placeholder="Enter New Password" name="new_password">
+        </div>
+        <div class="form-footer">
+            <button class="update-button">Update</button>
+        </div>
+    </form>
+
+    <form id="DeleteForm" method="post" action="/user/<%=user.id%>/delete?_method=DELETE">
+        <button id="btn_delete">Delete Profile</button>
+    </form>
+
+</body>
+</html>

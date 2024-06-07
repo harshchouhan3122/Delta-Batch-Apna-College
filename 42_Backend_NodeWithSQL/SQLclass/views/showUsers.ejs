@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            background-color: aliceblue;
+        }
+        #head{
+            display: flex;
+            /* border: 1px solid black; */
+            justify-content: end;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        #head h1{
+            /* border: 1px solid red; */
+            margin: 0;
+            margin-right: 35%;
+            text-align: center;
+            text-decoration: underline;
+        }
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: 0px 10px;
+        }
+        thead tr{
+            background-color: rgb(182, 182, 182);;
+            font-weight: bold;
+        }
+        tr{
+            border: 1px solid rgb(61, 61, 61);
+            background-color: rgb(231, 229, 229);
+        }
+        td{
+            padding: 2px 5px;
+            border-left: 1px solid black;
+        }
+        form button{
+            background-color: rgb(179, 177, 177);
+            border: hidden;
+            border-radius: 5px;
+        }
+        form button:hover{
+            transform: scaleX(1.1);
+        }
+        #btn-col{
+            width: 80px;
+            margin: 0;
+            border: none;
+        }
+        #btn_addUsers{
+            margin: 5px;
+            height: 30px;
+            width: 100px;
+            font-size: medium;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="head">
+        <h1>All Users</h1>
+        <form method="get" action="/user/add">
+            <button id="btn_addUsers">Add Users</button>
+        </form>
+
+    </div>
+    <table>
+        <thead>
+            <td>ID</td>
+            <td>Email</td>
+            <td>Username</td>
+            <td id="btn-col"></td>
+        </thead>
+        <tbody>
+
+            <% for(user of users){ %>
+                <tr>
+                    <td><%= user.id %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.username %></td>
+                    <td id="btn-col">
+                        <form method="GET" action="/user/'<%=user.id%>'/edit">
+                            <button>Edit Profile</button>
+                        </form>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>
