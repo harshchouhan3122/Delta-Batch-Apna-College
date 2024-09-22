@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Whatsapp</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>All Chats</h1>
+    <div>
+        <form method="GET" action="/chats/new">
+            <button>New Chat</button>
+        </form>
+    </div>
+    <div class="chat-container">
+        <% for(let chat of chats){ %>
+            <div class="chat">
+                <p>From: <i><%=chat.from%></i> </p>
+                <div class="msg">
+                    <p> <%=chat.msg%> </p>
+                    <div class="editButton">
+                        <form id="editButton-Form" action="/chats/<%=chat._id%>/edit" method="GET">
+                            <button id="editButton">Edit</button>
+                        </form>
+                        <!-- <form id="editButton-Form" method="POST" action="/chats/<%=chat._id%>?_method=DELETE">
+                            <button id="editButton" style="margin-left: 5px;" onclick="showText()" >Delete</button>
+                        </form> -->
+                        <form id="editButton-Form" method="POST" action="/chats/<%=chat._id%>?_method=DELETE">
+                            <button id="editButton" style="margin-left: 5px;" onclick="return showText()">Delete</button>
+                        </form>                        
+                    </div>
+                </div>
+                <p>Recieved by <i><%=chat.to%></i> </p>
+                <hr>
+                <p style="font-size: 0.8rem;"><%=chat.created_at.toString().split(" ")[4] %>, <%=chat.created_at.toString().split(" ").slice(1,4).join(" ") %></p>
+            </div>
+            <!-- <br> -->
+        <% } %>
+    </div>
+
+    <script>
+        let showText = () => {
+            // Show the confirmation dialog
+            let userConfirmed = confirm("Do you really want to delete this chat?");
+
+            // Check if the user clicked "OK"
+            if (userConfirmed) {
+                // User confirmed the deletion, allow form submission
+                return true;
+            } else {
+                // User canceled the deletion, prevent form submission
+                // alert("The chat will not be deleted.");
+                return false;
+            }
+        }
+
+    </script>
+</body>
+</html>
+

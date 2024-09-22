@@ -1,0 +1,76 @@
+/* Simon Say Game */
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    padding-top: 50px;
+    /* text-align: center; */
+    height: 100vh;
+    width: 100vw;
+    background-color: #d5e6e7;
+    /* padding-left: 30px; */
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1, h2{
+    margin: 10px 0px;
+    text-align: center;
+}
+
+h1{
+    text-decoration: underline;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    margin-top: 10px;
+    /* border: 1px solid red; */
+    width: max-content;
+}
+
+.btn{
+    height: 100px;
+    width: 100px;
+    border: 3px solid black;
+    margin: 2.5rem 1.5rem;
+    border-radius: 10px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.red{
+    background-color: rgb(224, 117, 117);
+}
+
+.blue{
+    background-color: rgb(127, 144, 192);
+}
+
+.green{
+    background-color: rgb(116, 226, 116);
+}
+
+.yellow{
+    background-color: rgb(245, 245, 62);
+}
+
+.flash{
+    background-color: white;
+}
+
+.userflash{
+    background-color: grey;
+}
+
+.game-over{
+    background-color: rgb(255, 0, 0);
+}

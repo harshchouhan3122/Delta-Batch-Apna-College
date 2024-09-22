@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div{
+    margin: 10px 10px;
+    border: 1px solid transparent;
+    padding: 10px 5px;
+}
+
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 350px;
+    border: 1px solid black;
+}

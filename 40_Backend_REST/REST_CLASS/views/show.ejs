@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Post</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+    <h1>Quora Posts</h1>
+    <hr>
+
+    <div class="container">
+        <h4>Post Id: <%= post.id %></h4>
+
+        <div class="post">
+            <h3 class="username"> @<%= post.username %> </h3>
+            <p class="content"> <%= post.content %> </p>
+        </div>
+        
+    
+        <button><a href="http://localhost:3000/posts/">Show all Posts</a></button>
+    </div>
+
+</body>
+</html>

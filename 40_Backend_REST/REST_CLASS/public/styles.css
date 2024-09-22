@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: 0px 20px 20px 20px
+}
+
+.container{
+    margin: 20px;
+}
+
+h1{
+    margin: 20px;
+    color: rgb(221, 55, 55);
+    text-align: center;
+}
+
+.post{
+    border: 1px solid grey;
+    background-color: rgb(188, 188, 231);
+    margin: 10px 10px;
+    padding: 0px 10px 20px 20px;
+    border-radius: 5px;
+}
+
+.username{
+    font-style: italic;
+    text-decoration: underline;
+    margin: 10px 0px;
+}
+
+.content{
+    font-style: normal;
+}
+
+button a{
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+}
+
+.center-btn{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30px;
+}
+
+form{
+    display: inline;
+}
+
+
+button{
+    border: 1px solid grey;
+    border-radius: 2px;
+    padding: 2px;
+}
+
+button:hover{
+    transform: scaleX(1.1);
+    background-color: transparent;
+    border: 1px solid black;
+}
+
+.delete-btn{
+    text-decoration: none;
+    color: black;
+    padding: 2px;
+    background-color: transparent;
+}
+
+.delete-btn:hover{
+    background-color: rgb(231, 124, 124);
+}

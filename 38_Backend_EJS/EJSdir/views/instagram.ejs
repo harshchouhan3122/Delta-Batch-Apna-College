@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+</head>
+<body>
+
+    <h1 style="text-align: center;">Welcome to Instagram</h1>
+
+    <h2>This account belongs to : @ <%= user %> </h2>
+
+    <h4>Following : <%= following %> </h4>
+    <h4>Followers : <%= followers %> </h4>
+
+    <button>Follow</button>
+    <button>Message</button>
+
+    <!-- Loops in EJS -->
+    <h3>Your Follower's List:</h3>
+    <ul>
+        <% for(let name of followerList) { %>
+            <li> <%= name %> </li>
+        <% } %>
+    </ul>
+
+</body>
+</html>
+

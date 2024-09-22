@@ -1,0 +1,17 @@
+.card{
+    border: 1px solid black;
+    border-radius: 5px;
+    width: max-content;
+    margin: 5px;
+    display: inline-block;
+    padding: 0;
+
+    height: 250px;
+    width: 200px;
+
+    padding: 0px 0px;
+
+    box-sizing: border-box;
+    /* overflow: hidden; */
+    /* align-items: center; */
+}

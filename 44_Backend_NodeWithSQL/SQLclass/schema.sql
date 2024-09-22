@@ -1,0 +1,23 @@
+SHOW DATABASES;
+
+USE delta_app;
+
+CREATE TABLE IF NOT EXISTS users (
+    -- id VARCHAR(50) PRIMARY KEY,
+    id INT PRIMARY KEY,
+    userName VARCHAR(50) UNIQUE,
+    email VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(50) NOT NULL
+);
+
+-- Deletes all the rows from the table
+-- TRUNCATE TABLE users;  
+
+SELECT * FROM users;
+
+ALTER TABLE users MODIFY password VARCHAR(50) NOT NULL;
+ALTER TABLE users MODIFY email VARCHAR(50) UNIQUE NOT NULL;
+
+ALTER TABLE users MODIFY username VARCHAR(50) UNIQUE NOT NULL;
+
+DESCRIBE users;

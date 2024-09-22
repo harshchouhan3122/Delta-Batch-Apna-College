@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: aliceblue;
+        }
+        div{
+            margin-bottom: 5px;
+        }
+        form{
+            width: 300px;
+            border: 1px solid black;
+            padding: 10px 15px;
+            border-radius: 4px;
+            background-color: rgb(216, 221, 226);
+            margin: 20px;
+        }
+        form button{
+            cursor: pointer;
+        }
+        .form-footer {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 15px; /* Add some space between the input fields and the button */
+        }
+        .update-button {
+            /* padding: 10px 20px; */
+            /* font-size: 16px; */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- <form method="put" action="/user/add"> -->
+    <form method="post" action="/user/add?_method=PUT">
+        <p style="text-align: center; margin: -5px 0px 10px 0px ; font-weight: bold;">New User</p>
+        <div class="username">
+            <label for="username">Username: </label>
+            <input type="text" name="username" placeholder="username">  
+        </div>
+        <div class="password">
+            <label for="password">Password: </label>
+            <input type="password" placeholder="Enter Password" name="password">
+        </div>
+        
+        <div class="email">
+            <label for="email">Email: </label>
+            <input type="email" placeholder="example@gmail.com" name="email">
+        </div>
+        <div class="id">
+            <label for="id">UUID: </label>
+            <input type="number" placeholder="4 digit id" name="id">
+        </div>
+
+        <div class="form-footer">
+            <button class="update-button">Sign Up</button>
+        </div>
+    </form>
+
+</body>
+</html>

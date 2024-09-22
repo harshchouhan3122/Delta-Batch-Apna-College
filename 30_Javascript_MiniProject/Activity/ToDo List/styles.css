@@ -1,0 +1,47 @@
+/* To Do List -> Activity */
+*{
+    padding: 0;
+    margin: 0;
+}
+
+div{
+    /* text-align: center; */
+    height: 100vh;
+    width: 100vw;
+    background-color: #97d2d6;
+    padding-left: 30px;
+}
+
+div h1{
+    text-align: center;
+    padding-right: 70px;
+}
+
+input{
+    margin: 10px 5px 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+ul{
+    list-style-type: none;
+}
+
+button{
+    background-color: black;
+    color: white;
+    padding: 2px;
+    border-radius: 10px;
+}
+
+.button-delete{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 0.9rem;
+    margin-left: 10px;
+    font-weight: bold;
+    height: 25px;
+}
+
+.checkbox-task {
+    margin-top: 10px;
+}
