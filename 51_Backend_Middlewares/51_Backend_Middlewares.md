@@ -134,3 +134,7 @@
     - It return the error code along with the error
     - It added default error handler at the end of the middleware by express itself
     - We can change the Error message by using our own error throw
+
+    - next();     //It will search the next non error handleing middleware
+        - that'swhy we use 
+            next(err);
