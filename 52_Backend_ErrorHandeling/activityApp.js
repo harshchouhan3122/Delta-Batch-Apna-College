@@ -9,7 +9,7 @@ const ExpressError = require("./ExpressError");
 let checkToken = (req, res, next) => {
     let { token } = req.query;
     if (token === "pass"){
-        // redirect("/admin");
+        // res.redirect("/admin");
         next();
     }
 
@@ -32,3 +32,24 @@ app.listen(PORT, (req, res) => {
 
 
 
+
+
+// function wrapAsync(fn) {
+//     return function (req, res, next) {
+//         fn(req, res, next).catch((err) => next(err));
+//     }
+// }
+
+
+const handleValidationErr = (err) => {
+    console.log("Validation error occured");
+    return err;
+};
+
+app.use((err, req, res, next) => {
+    console.log(err.name);
+    if (err.name === "ValidationError") {
+        err = handleValidationErr(err);
+    }
+    next(err);
+});

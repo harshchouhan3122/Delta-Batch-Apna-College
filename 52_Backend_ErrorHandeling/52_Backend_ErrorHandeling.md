@@ -112,3 +112,49 @@
         }
         res.render("edit.ejs", { chat });
     });
+
+## Using try-catch
+    - Async Errors
+        - id doesn't exists as seen in the last video
+        - validation error (IMPORTANT)
+            - when you are going to save the data without having the required fields
+            - to tackle these type of errors we can use try and catch block
+
+## Using wrapAsync
+    - Normal Errors
+    - Asyncronous Errors (using ExpressError)
+    - Multiple Asynchronous Error (using try-catch block)
+
+    - using wrapAsync   -> to reduce the bulkiness of try-catch block
+        - Combination of three functions
+        - It is a function having name wrapAsync which takes a function as a argument and then return another function 
+
+    function wrapAsync(fn) {
+        return function (req, res, next) {
+            fn(req, res, next).catch((err) => next(err));
+        }
+    }
+
+
+## Mongoose Errors
+    - Validation Error, Cast Error
+
+
+    // if you wanna do something extra using that error then you can use this type of function
+
+    const handleValidationErr = (err) => {
+        console.log("Validation error occured");
+        console.dir(err);
+        console.dir(err.message);
+        return err;
+    };
+
+    // this middleware is used to print the name of the error
+
+    app.use((err, req, res, next) => {
+        console.log(err.name);
+        if (err.name === "ValidationError") {
+            err = handleValidationErr(err);
+        }
+        next(err);
+    });
