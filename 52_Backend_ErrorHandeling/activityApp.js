@@ -41,15 +41,15 @@ app.listen(PORT, (req, res) => {
 // }
 
 
-const handleValidationErr = (err) => {
-    console.log("Validation error occured");
-    return err;
-};
+// const handleValidationErr = (err) => {
+//     console.log("Validation error occured");
+//     return err;
+// };
 
-app.use((err, req, res, next) => {
-    console.log(err.name);
-    if (err.name === "ValidationError") {
-        err = handleValidationErr(err);
-    }
-    next(err);
-});
+// app.use((err, req, res, next) => {
+//     console.log(err.name);
+//     if (err.name === "ValidationError") {
+//         err = handleValidationErr(err);
+//     }
+//     next(err);
+// });
