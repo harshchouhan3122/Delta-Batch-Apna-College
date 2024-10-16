@@ -286,3 +286,73 @@
     }
 
     This design has all of the advantages and disadvantages of the “One-to-Many” schema, but with some additions. Putting in the extra "owner" reference into the Task document means that its quick and easy to find the task’s owner, but it also means that if you need to reassign the task to another person, you need to perform two updates instead of just one. Specifically, you’ll have to update both the reference from the Person to the Task document, and the reference from the Task to the Person. (And to the relational database gurus who are reading this, you’re right; using this schema design over a normalized database model means that it is no longer possible to reassign a Task to a new Person with a single atomic update. This is OK for our task-tracking system; you need to consider if this works with your particular use case.)
+
+
+### Handeling Deletion
+    - Cascading of Deletion
+        - Deleting other documents related to one document which we have to delete
+        - Deleting Posts related to user Account when we dare deleting the user Account.
+
+    - using Mongoose Middleware (Different from the express Middlewares) -> https://mongoosejs.com/docs/middleware.html
+        - Currently we are focus on Query Middlewares
+
+
+#### Use the customer.js from lecture no.54 Database relationships
+    - Two Functions
+        - Add customers
+            const addCustomer= async() => {
+                let newCust = new Customer({
+                    name: "Karan Bhai",
+                });
+                await newCust.save();
+
+                let newOrder = new Order({
+                    item: "Pizza",
+                    price: 550,
+                });
+                await newOrder.save();
+
+                newCust.orders.push(newOrder);
+                await newCust.save();
+
+            };
+
+
+        - Delete Customers
+            const deleteCustomer = async() => {
+                let data = await Customer.findByIdAndDelete("670f85d70e111c6f1e4c6ea6");
+                console.log(data);
+            };
+
+### Mongoose middleware (https://mongoosejs.com/docs/middleware.html)
+    - We have to use Mongoose middleware to delete the orders related to the customer which we have to delete. -> By using POST Query Mongoose Middleware
+
+    - We can use two middleware
+        - Pre -> run before the query is executed
+        - Post -> run after the query is executed
+
+    - findByIdAndDelete() triggers the mongoose middleware -> findOneAndDelete()
+        - https://mongoosejs.com/docs/api/model.html#Model.findByIdAndDelete()
+    
+
+    - Mention the Pre and post Middlewares just after the Schema Defined.
+        customerSchema.pre("findOneAndDelete", async() => {
+            console.log("PRE Middleware Works....");
+        });
+
+#### Deleting all the Orders associated with the deleting customer
+    // We wanna delete orders of deleted Customer
+    customerSchema.post("findOneAndDelete", async(customer) => {
+        // console.log(customer);
+        if (customer.orders.length){
+            let res = await Order.deleteMany({_id: {$in: customer.orders} });
+            console.log(res);
+        }
+    });
+
+    const deleteCustomer = async() => {
+        let data = await Customer.findByIdAndDelete("670f8f998e92ede4c1262553");    //Customer ID
+        console.log(data);
+    };
+
+    deleteCustomer();
