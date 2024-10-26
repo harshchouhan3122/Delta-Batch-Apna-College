@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "method-override": "^3.0.0"
+  }
+}
