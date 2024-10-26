@@ -13,21 +13,54 @@ app.use(methodOverride("_method"));                             //for PUT reques
 const users = require("./routes/users");
 const posts = require("./routes/posts");
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
 const session = require("express-session");
+const flash = require("connect-flash");
 
-app.use(session({secret: "secretCode", saveUninitialized: true, resave: false}));   //connect.sid
 
+const sessionoptions = {
+    secret: "secretCode",
+    saveUninitialized: true,
+    resave: false
+};
+
+app.use(session(sessionoptions));   //connect.sid
+app.use(flash());
+
+
+
+
+
+
+
+
+
+app.get("/register", (req, res) => {
+    // let { req.session.name = "Anonymous" } = req.query;  //Incorrect way to define
+    let { name = "Anonymous" } = req.query;
+    req.session.name = name;
+    // res.send(`${req.session.name}`);
+    req.flash("success", "User registered Successfully.");
+    res.redirect("/hello");
+});
+
+app.get("/hello", (req, res) => {
+    // res.send(`Hello, ${req.session.name}`);
+    res.render("page.ejs", {name: req.session.name, msg: req.flash("success")});
+});
 
 // Express-Session  -> Session is same if you open another tab for the same route
-app.get("/test", (req, res) => {
-    // res.send("Test Seccessful. ");
-    if(req.session.count){
-        req.session.count ++;
-    } else{
-        req.session.count = 1;
-    }
-    res.send(`You sent a request ${req.session.count} times`);
-});
+// app.get("/test", (req, res) => {
+//     // res.send("Test Seccessful. ");
+//     if(req.session.count){
+//         req.session.count ++;
+//     } else{
+//         req.session.count = 1;
+//     }
+//     res.send(`You sent a request ${req.session.count} times`);
+// });
 
 
 
