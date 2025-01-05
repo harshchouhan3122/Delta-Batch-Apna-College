@@ -23,7 +23,7 @@ function App() {
 
       <div>
         {/* Using Hook -> To Render UI when component state updates */}
-        {/* <Counter /> */}
+        <Counter />
       </div>
 
 

@@ -140,5 +140,44 @@
     - value of stateVariable updates during the re-Rendering of the Component
 
 
-### Callback in Set State Function
-    -> 
+### Callback in Set State Function / Callback in Updater Function 
+    -> Updater Function -> which is used to update the stateVariable
+        -> StateFunction / Updater Function are Asynchronous Functions
+
+        -> Check the code in Like Button Folder in Counter.jsx
+
+            function incCount() {
+                setCount(count+1);
+                setCount(count+1);
+                setCount(count+1);
+                setCount(count+1);
+                console.log(count+1);
+            }
+
+            -> So it will never increase count by 4 here, because here update function are async in nature
+            So, we have to use Callback in this manner to update the counter value based on the previous value
+
+    -> How to change the state when it depends on the current value (works only single time )
+
+        function incCount() {
+            setCount( (currCount) => {
+                return currCount += 1;
+            });
+            setCount( (currCount) => {
+                return currCount += 1;
+            });
+        }
+
+        -> It will work sychronously 
+
+### More About State (Important)
+    -> Re-Rendering occcurs only when stateVarible's value changes
+        -> If you are updateing value as 25 like setCount(25); then it will not re-render because staeVariable has constant value
+    
+    -> Always pass init function to initialize stateVariable by reference not by calling
+        let [num, setNum] = useState(init()) -> Not Prefered -> It will execute everytime whenever coponent will render
+
+        let [num, setNum] = useState(init) -> Singly Executed by React -> It will save Resources
+
+
+
