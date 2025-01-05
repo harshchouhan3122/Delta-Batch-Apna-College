@@ -31,7 +31,12 @@ app.use(flash());
 
 
 
-
+// res.locals using Middleware
+app.use((req, res, next) => {
+    res.locals.successMsg = req.flash("success");
+    res.locals.errorMsg = req.flash("error");
+    next();
+});
 
 
 
@@ -42,13 +47,23 @@ app.get("/register", (req, res) => {
     let { name = "Anonymous" } = req.query;
     req.session.name = name;
     // res.send(`${req.session.name}`);
-    req.flash("success", "User registered Successfully.");
+    if (name==="Anonymous"){
+        req.flash("error", "User not registered.");
+    } else {
+        req.flash("success", "User registered Successfully.");
+    };
     res.redirect("/hello");
 });
 
 app.get("/hello", (req, res) => {
     // res.send(`Hello, ${req.session.name}`);
-    res.render("page.ejs", {name: req.session.name, msg: req.flash("success")});
+    // res.send(req.flash("success"));
+    // res.render("page.ejs", {name: req.session.name, msg: req.flash("success")});
+
+    // using res.locals
+    // res.locals.successMsg = req.flash("success");
+    // res.locals.errorMsg = req.flash("error");
+    res.render("page.ejs", {name: req.session.name});
 });
 
 // Express-Session  -> Session is same if you open another tab for the same route

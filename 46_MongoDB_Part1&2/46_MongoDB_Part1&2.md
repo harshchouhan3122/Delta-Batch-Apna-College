@@ -1,5 +1,10 @@
 # MongoDB - Part 1
 
+# Download 
+    - https://www.youtube.com/watch?v=h2x6BmUi5zQ (VIDEO)
+    - https://www.mongodb.com/try/download/community (MONGODB)
+    - https://www.mongodb.com/try/download/shell (MONGO SHELL)
+
 ## The Mongo Shell
     -> Pinned to Starts - mongosh
     -> Download MongoShell and mongoDB from official Website

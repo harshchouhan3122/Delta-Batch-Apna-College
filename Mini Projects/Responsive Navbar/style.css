@@ -1,0 +1,287 @@
+body {
+    font-family: "Plus Jakarta Sans" , sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+}
+
+
+/*   NAVBAR   */
+
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+
+.fa-compass{
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link{
+    color: #222222 !important;          /*important is used to override the bootstrap styling*/
+}
+
+.nav-btn{
+    /* background-color: #fe424d !important; */
+    color: #222222 !important;
+    border: none !important;
+    font-weight: bold !important;
+}
+
+.nav-btn:hover{
+    background-color: #fe424d !important;
+    color: white !important;
+    border: none !important;
+    font-weight: bold !important;
+}
+
+.nav-search{
+    display: flex;
+    gap: 1rem;
+}
+
+#nav-search-input{
+  padding: 0.5rem 3rem;
+  border: 1px solid grey;
+  border-radius: 25px;
+}
+
+#nav-search-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 25px;
+  background-color: #fe424d;
+  color: #fff;
+}
+
+  
+
+/*   FOOTER   */
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+    margin-right: 1rem;
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info-links, .f-info-socials, .f-info-brand{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i{
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+
+.f-info-socials i:hover{
+    /* color: #fe424d; */
+    transform: scale(1.2);
+}
+
+.f-info{
+    height: 8rem;
+    text-align: center;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+
+/*   INDEX (All Listings Page    */
+
+/* Filters */
+#filters{
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent wrapping of items */
+    padding: 10px;
+}
+
+#filters::-webkit-scrollbar {
+    display: none; /* Optional: Hide scrollbar for cleaner look */
+}
+
+.filter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0.7;
+}
+
+.filter:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.filter p{
+    font-size: 0.8rem;
+}
+
+#tax-switch{
+    border: 1px solid grey;
+    border-radius: 2rem;
+    padding: 1rem !important;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 1rem;
+}
+
+
+
+/* Cards */
+/* .card{ */
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+
+}
+
+.card-body{
+    padding: 0 !important;
+}
+
+.card-text p{
+    font-weight: 400 !important;
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+/* Card Effect */
+.card-img-overlay{
+    opacity: 0;
+}
+/* .card-img-overlay:hover  + .card-img-top{ */
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+}
+
+
+/* New Listing */
+
+.add-btn{
+    background-color: #fe424d !important;
+    color: white !important;
+    border: none !important;
+    /* transform: scale(1.1); */
+    font-weight: bold !important;
+}
+
+.add-btn:hover{
+    transform: scale(1.1);
+}
+
+
+
+/* Edit Listing */
+
+.edit-btn{
+    background-color: #fe424d !important;
+    color: white !important;
+    border: none !important;
+    /* transform: scale(1.1); */
+    font-weight: bold !important;
+}
+
+.edit-btn:hover{
+    transform: scale(1.1);
+}
+
+
+/* Show Page */
+.show-img{
+    height: 30vh;
+}
+
+.delete-btn{
+    /* background-color: #fe424d !important; */
+    color: white !important;
+    border: none !important;
+    font-weight: bold !important;
+}
+
+.delete-btn:hover{
+    transform: scale(1.1);
+}
+
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Review Card */
+.reviewCard{
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem !important;
+}
+
+
+
+
+
+/* MAP */
+#map { 
+    height: 40vh;
+    width: 100%;
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 4px;
+}
+
+
+
+
+
+
+/* For Mobile Screen*/
+
+@media (max-width: 767px) {
+    .navbar-collapse {
+      background-color: #fff; /* Set your desired background color */
+      margin-top: 1rem;
+      border-bottom: 1px solid grey;
+      margin-bottom: 1rem;
+    }
+    
+    .nav-search{
+        scale: 0.8;
+    }
+
+    .navbar-nav{ 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nav-link {
+      margin-bottom: 10px;
+    }
+}
