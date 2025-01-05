@@ -5,6 +5,7 @@ import Counter1 from './Counter1'
 import Counter from './Counter'
 import LikeCounter from './LikeCounter'
 import LikeButton from './LikeButton'
+import LudoBoard from './LudoBoard'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,18 +13,17 @@ function App() {
 
   return (
     <>
-      <h1>States in React</h1>
+      {/* <h1>States in React</h1> */}
 
       <div>
         {/* Without Hook */}
         {/* <Counter1 /> */}
       </div>
 
-      <hr />
 
       <div>
         {/* Using Hook -> To Render UI when component state updates */}
-        <Counter />
+        {/* <Counter /> */}
       </div>
 
 
@@ -33,7 +33,11 @@ function App() {
 
       <div>
         {/* Like Toggle button */}
-        <LikeButton />
+        {/* <LikeButton /> */}
+      </div>
+
+      <div>
+        <LudoBoard />
       </div>
 
 

@@ -7,7 +7,7 @@
 -> Imp for React -> Component, Props, States (Imp but confusing), 
 
 
-## Part 3 (Handeling Event, States, Hook)
+## Part 3 (Handeling Event, States, Hook, Callback in Updater Function, Initialize func By reference)
 
 ### Handeling Click Events (Important)
     -> Define a function funcName
@@ -181,3 +181,50 @@
 
 
 
+## PART 4 -> ()
+
+### Objects and State (Spread Operator -> Copy Object, Callback Update)
+    -> Create LudoBoard.jsx to understand this concept
+        -> let [moves, setMoves] = useState({ blue: 0, red: 0, green: 0, yellow: 0})
+
+        -> Initializing values of different entity with the help of object to reduce no. of statevariables
+            -> Another Way to do this (Declare statevariables for each object)
+                -> let [blueMoves, setBlueMoves] = useState(0)
+                -> let [greenMoves, setGreenMoves] = useState(0) and so on
+
+        -> In JS, Whenever we change the values of Array And Object then its reference address will be same, and Hence our component will not reRender because our object and Array is not getting changed.
+            -> { blue: 12} -> { blue: 14} -> Refference Add of Object Would be same
+
+        -> We have to create copy (new Address) of previous object everytime
+            -> We will use spread operator which copy the object and then react will reRender because previous ddress of the objet will be change this time
+
+            -> Spread Operator in JS (...moves)
+
+        -> Always use callback to update the value when you want to update based on the current value
+
+        let updateBlue = () => {
+            console.log(`moves.blue = ${moves.blue}`);
+            setMoves((prevMoves) => {
+                return { ...prevMoves, blue: prevMoves.blue +1 };
+            });
+        };
+
+### Arrays and State
+    -> When we push element into an Array, It doesn't trigger reRendering
+    Because the reference address of the array is not changing 
+    -> React doesn't treat this change and Re-Rendering of Component will not be possible with this pushing operations
+
+    -> To resolve this issue we will use spread operator
+    
+    setArr[...arr, "blue moves"] -> arr = ["no moves"] -> arr = ["no moves", blue moves] 
+
+        let updateBlue = () => {
+
+            setArr((prevArr) => {
+                return [...prevArr, "blue"];
+            });
+        };
+
+
+### Mini Project -> To Do List using React
+-> 
