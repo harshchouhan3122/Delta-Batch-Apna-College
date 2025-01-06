@@ -339,5 +339,51 @@
         );
     }
 
+    -> Best to Understand
+        function markAll() {
+
+            // Explicit Return
+            // setTaskList ( (prevTaskList) => {
+            //     return prevTaskList.map((task) => {
+            //         return {
+            //             ...task,
+            //             isDone: true
+            //         }
+            //     })
+            // })
+
+            // Implicit Return Preffered
+            setTaskList((prevTaskList) =>
+                prevTaskList.map((task) => ({
+                    ...task,
+                    isDone: true,
+                }))
+            );
+
+        }
+
 ### Update One in Array ( use map())
 -> We will use id to target element and then return targeted value with change change and others without change
+    // function markOne(id) {
+    //     setTaskList ( (prevTaskList) => {
+    //         return prevTaskList.map( (task) => {
+    //             if (task.id == id) {
+    //                 return {...task, isDone:true }
+    //             } else {
+    //                 return {...task}
+    //             }
+    //         })
+    //     })
+    // }
+
+    function markOne(id) {
+        setTaskList((prevTaskList) =>
+            prevTaskList.map((task) =>
+                task.id === id ? { ...task, isDone: true } : task
+            )
+        );
+    }
+
+
+### Lottery Game (Homework Activity)
+-> LotteryGame.jsx
