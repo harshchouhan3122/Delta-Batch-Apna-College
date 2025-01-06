@@ -227,4 +227,75 @@
 
 
 ### Mini Project -> To Do List using React
--> 
+-> UI -> Input, Button to Add Task, UL to display tasks
+-> States
+    -> for storing input value
+        let [newTask, setNewTask] = useState("");
+    -> for storing array of tasks
+        let [taskList, setTaskList] = useState([]);
+
+-> Update Functions
+    function updateNewTask(event){
+        setNewTask(event.target.value);
+    }
+
+    function addNewTask() {
+        setTaskList([...taskList, newTask]);
+        setNewTask("");
+    }
+
+-> ToDoList return Function value as
+
+        <>
+            <h1 style={{textDecorationLine: "underline"}}>To Do List</h1>
+            
+            {/* Input Task */}
+            <input type="text" placeholder="Enter Task" onChange={updateNewTask} value={newTask}/>
+
+            {/* Add Task */}
+            <button onClick={addNewTask}>Add</button>
+
+            {/* Display Tasks */}       -> It will show some error in console which we will cover in next topic
+            <div>
+                <ul>{ taskList.map((tasks) => {
+                    return <li>{tasks}</li>
+                }) }
+                </ul>
+            </div>
+        </>
+
+
+### Unique Key for list Items
+    <ul>{ taskList.map((tasks) => {
+        return <li>{tasks}</li>
+    }) }
+    </ul>
+
+    -> React suggests us to keep an key for individual <li> to keep track on it for future manipulation
+    -> We can create our own unique id or we can use uuid package of npm which generates unique ids for us
+        -> First way -> create own uniuqe key -> we are using index value of it
+            <ul>
+                {taskList.map((task, index) => (
+                    <li key={index}>{task}</li>
+                ))}
+            </ul>
+        
+        -> Another way -> using uuid npm package
+            -> npm i uuid
+            -> import it in component
+            -> call it 
+
+            -> changes needed
+            import { v4 as uuidv4 } from 'uuid';
+
+            let [taskList, setTaskList] = useState([{ todo: "sample", id: uuidv4() }]);
+            setTaskList([...taskList, { todo: newTask, id: uuidv4() }]);
+
+            <div>
+                <ul>
+                    {taskList.map((task) => (
+                        <li key={task.id}>{task.todo}</li>
+                    ))}
+                </ul>
+            </div>
+
