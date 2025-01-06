@@ -210,6 +210,7 @@
         };
 
 ### Arrays and State
+    -> -> Must read :https://react.dev/learn/updating-arrays-in-state
     -> When we push element into an Array, It doesn't trigger reRendering
     Because the reference address of the array is not changing 
     -> React doesn't treat this change and Re-Rendering of Component will not be possible with this pushing operations
@@ -265,7 +266,7 @@
         </>
 
 
-### Unique Key for list Items
+### Unique Key for list Items (Array of an Object)
     <ul>{ taskList.map((tasks) => {
         return <li>{tasks}</li>
     }) }
@@ -299,3 +300,44 @@
                 </ul>
             </div>
 
+### Deleting from Arrays ( use Filter() )
+-> Callback function will be use -> to send argument to function without executing it
+-> Filter method is used to delete value from an Array in React (Important)
+    -> This method return a copy of new filtered array
+
+    function deleteTask(id) {
+        // console.log(id);
+        setTaskList((prevTaskList) => {
+            let newTaskList = prevTaskList.filter((prevTasks) => prevTasks.id != id);
+            return newTaskList;
+        });
+    }
+
+    <ul>
+        {taskList.map((task) => (
+            <li key={task.id}>
+                <span>{task.todo}</span> &emsp;
+                <button onClick={()=> {deleteTask(task.id)}}>Delete</button>
+            </li>
+        ))}
+    </ul>
+
+### Update All in Array ( .map())
+    let upperCaseAll = () => {
+        // console.log("UpperCase");
+        // let newArr = taskList.map((tasks) => (
+        //     {...tasks,
+        //     todo: tasks.todo.toUpperCase()}
+        // ));
+        // console.log(newArr);
+
+        setTaskList( (prevTaskList) => 
+            prevTaskList.map((tasks) => ({
+                ...tasks,
+                todo: tasks.todo.toUpperCase()
+            }))
+        );
+    }
+
+### Update One in Array ( use map())
+-> We will use id to target element and then return targeted value with change change and others without change

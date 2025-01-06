@@ -13,13 +13,69 @@ export default function TodoList() {
         // console.log(newTask);
     }
 
-    function addNewTask() {
+    function addTask() {
         // console.log(`Task to be added: ${task}`);
         // setTaskList([...taskList, newTask]);
         // setNewTask("");
-        setTaskList([...taskList, { todo: newTask, id: uuidv4() }]);
+        setTaskList((prevTaskList) => {
+            return [...prevTaskList, { todo: newTask, id: uuidv4() }]
+        });
         setNewTask("");
     }
+
+    function deleteTask(id) {
+        // console.log(id);
+        setTaskList((prevTaskList) => {
+            let newTaskList = prevTaskList.filter((prevTasks) => prevTasks.id != id);
+            return newTaskList;
+        });
+    }
+
+    let upperCaseAll = () => {
+        // console.log("UpperCase");
+        // let newArr = taskList.map((tasks) => (
+        //     {...tasks,
+        //     todo: tasks.todo.toUpperCase()}
+        // ));
+        // console.log(newArr);
+
+        // setTaskList( (prevTaskList) => 
+        //     prevTaskList.map((tasks) => ({
+        //         ...tasks,
+        //         todo: tasks.todo.toUpperCase()
+        //     }))
+        // );
+
+        setTaskList( (prevTaskList) => 
+            prevTaskList.map((task) => {
+                return {
+                    ...task,
+                    todo: task.todo.toUpperCase()
+                }
+            })
+        );
+    }
+
+    let upperCaseOne = (id) => {
+        // console.log(id);
+        setTaskList( (prevTaskList) => 
+            prevTaskList.map((prevTask) => {
+                if (prevTask.id == id){
+                    return {
+                        ...prevTask,
+                        todo: prevTask.todo.toUpperCase()
+                    }
+                } else {
+                    return prevTask
+                }
+            })
+        );
+        
+    }
+
+
+
+
 
     return (
         <>
@@ -29,33 +85,24 @@ export default function TodoList() {
             <input type="text" placeholder="Enter Task" onChange={updateNewTask} value={newTask}/>
 
             {/* Add Task */}
-            <button onClick={addNewTask}>Add</button>
+            <button onClick={addTask}>Add</button>
 
             {/* Display Tasks */}
-            {/* <div>
-            <ul>
-                {taskList.map((task) => (
-                    <li>{task}</li>
-                ))}
-            </ul>
-            </div> */}
-
-            {/* Using index as key value */}
-            {/* <div>
-            <ul>
-                {taskList.map((task, index) => (
-                    <li key={index}>{task}</li>
-                ))}
-            </ul>
-            </div> */}
-
             {/* using uuid for unique key value */}
             <div>
                 <ul>
                     {taskList.map((task) => (
-                        <li key={task.id}>{task.todo}</li>
+                        <li key={task.id}>
+                            <span>{task.todo}</span> &emsp;
+                            <button onClick={()=> {deleteTask(task.id)}}>Delete</button>
+                            <button onClick={() => {upperCaseOne(task.id)}}>UpperCase It</button>
+                        </li>
                     ))}
                 </ul>
+            </div>
+
+            <div>
+                <button onClick={upperCaseAll}>UpperCase All</button>
             </div>
         </>
     )
