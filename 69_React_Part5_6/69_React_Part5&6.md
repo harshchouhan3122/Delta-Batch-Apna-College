@@ -70,7 +70,7 @@
 -> winCondition function passed as props in LotteryGame -> App.jsx
 
 
-## Part 6 (Forms in React -> inputChange, handleSubmission, )
+## Part 6 (Imp -> Forms in React -> inputChange, handleSubmission, )
 
 ### Forms in React
 -> The Standard way with Forms is to use Controlled Components. So we make React State to be the "single source of truth".
@@ -155,3 +155,74 @@
 
 ### Comments Form ()
 -> like comment component used in different Apps
+-> CommentForm.jsx
+
+    import { useState } from "react";
+
+    export default function CommentForm() {
+
+        // Initialise Form Data
+        let init = () => {
+            return {
+                username: "",
+                remarks: "",
+                rating: 5,
+            }
+        }
+
+        let [formData, setFormData] = useState(init)
+
+        function handleInputChange(event){
+            setFormData( (currData) => {
+                return {...currData, [event.target.name]: event.target.value}
+            })
+        }
+
+        function handleSubmit (event) {
+            event.preventDefault();
+            console.log(formData);
+            setFormData(init);
+        }
+
+        return (
+            <>
+                <h2>Comment Section</h2>
+
+                <form action="" onSubmit={handleSubmit}>
+
+                    <label htmlFor="username">Username:</label> &ensp;
+                    <input type="text" name="username" id="username" placeholder="username" onChange={handleInputChange} value={formData.username} />
+                    <br /><br />
+
+                    <label htmlFor="remarks">Remarks:</label> &ensp;
+                    <textarea name="remarks" id="remarks" onChange={handleInputChange} value={formData.remarks} ></textarea>
+                    <br /><br />
+
+                    <label htmlFor="rating">Rating:</label> &ensp;
+                    <input type="number" name="rating" id="rating" onChange={handleInputChange} value={formData.rating} min={1} max={5} />
+                    <br /><br />
+
+                    <hr />
+                    <button>Comment</button>
+                </form>
+            </>
+        )
+    }
+
+
+### Show Comments (Imp )
+-> Display Comment by another component
+-> CommentsArray -> Array of Objects to store comments -> [{}, {}, {}]
+-> Create Comments.jsx to display comments from Array of Objects (Imp -> Sending Data from Down to Up using Indirect method of passing Function as prop )
+    -> import CommentForm here and pass addNewComment function as props to it
+    -> use addNewComment function in handleSubmit function of CommentForm.jsx 
+
+### Form Validations (Formik)
+-> npm install formik
+    -> tool used for form validations (most popular tool)
+    -> another tool -> YUP
+    -> https://formik.org/docs/overview
+
+-> Create another file CommentFormNew.jsx -> where we are going to use formik and import it in Comments.jsx
+    -> https://formik.org/docs/tutorial#validation (Take help from here to use formik for validation -> Sample Codes)
+    

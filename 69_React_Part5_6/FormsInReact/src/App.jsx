@@ -1,6 +1,6 @@
-
-
 import './App.css'
+import CommentForm from './CommentForm'
+import Comments from './Comments'
 import Form from './Form'
 
 function App() {
@@ -8,7 +8,11 @@ function App() {
 
   return (
     <>
-      <Form />
+      {/* <Form /> */}
+      
+      <Comments />
+
+      {/* <CommentForm /> */}
     </>
   )
 }

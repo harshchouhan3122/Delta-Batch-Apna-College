@@ -1,0 +1,11 @@
+.comment{
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    background-color: rgba(236, 232, 232, 0.918);
+}
+
+#username{
+    font-style: italic;
+}
