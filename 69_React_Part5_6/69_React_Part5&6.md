@@ -225,4 +225,36 @@
 
 -> Create another file CommentFormNew.jsx -> where we are going to use formik and import it in Comments.jsx
     -> https://formik.org/docs/tutorial#validation (Take help from here to use formik for validation -> Sample Codes)
-    
+    -> changes needed in the file to use formik 
+        -> change stateVariable
+        -> change onChange={}
+        -> change values={}
+        -> change onSubmit={}
+        -> write validations 
+
+
+### useEffect() in React (https://react.dev/reference/react/useEffect)
+->  The Effect Hook lets you perform side effects in function components
+-> Data detching, setting up a subscription, and manually changing the DOM in React components
+    are all the examples of side effects.
+
+-> It is used to show some effect whenever the form will renders or re-renders
+    -> We can pass function to it (setup)
+    -> We can pass dependencies to it (stateVariables)
+        -> let create counterY and then pass counterX variable as dependencies
+            -> effects of useEffect works only when counterX renders (check console)
+                useEffect(()=>{
+                    console.log("Count Increased.")
+                }, [countX]);
+            -> you can array of multiple stateVariables as dependency
+
+-> NOTE:  If we wanna se side effect for the 1st time rendering only then pass empty array as dependecy
+    useEffect(()=>{
+        console.log("Count Increased.")
+    }, []);
+
+
+#### Use Cases of useEffect() -> https://react.dev/reference/react/useEffect
+-> API Calls -> Asynchronous Operations
+-> If we want to execute a async function during the rendering (first rendring) then at that time we can use useEffect
+-> Jokes Api
