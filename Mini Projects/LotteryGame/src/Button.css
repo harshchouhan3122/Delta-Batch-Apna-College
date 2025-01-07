@@ -1,0 +1,11 @@
+
+.btn{
+    margin: 1rem;
+    border: 1px solid grey;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+    border: 1px solid black;
+    background-color: rgb(206, 206, 206);
+}
