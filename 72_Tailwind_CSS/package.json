@@ -1,9 +1,11 @@
 {
-  "scripts":{
-            "start":"vite",
+  "scripts": {
+    "start": "vite"
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.12"
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17"
   },
   "dependencies": {
     "vite": "^5.4.6"
